@@ -14,13 +14,9 @@ function createEmployeeRecord(array) {
 }
 
 function createEmployeeRecords (array) {
-array.forEach((elements) => {
-    console.log(createEmployeeRecord(elements))
-    
-    // Place each new object in an array
-
+return array.map((elements) => {
+    return createEmployeeRecord(elements)
 })
-return array
 }
 
 //Test cases
