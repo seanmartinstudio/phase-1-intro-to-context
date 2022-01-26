@@ -15,7 +15,7 @@ function createEmployeeRecord(array) {
 
 function createEmployeeRecords (array) {
 array.forEach((elements) => {
-    createEmployeeRecord(elements)
+    console.log(createEmployeeRecord(elements))
     
     // Place each new object in an array
 
@@ -35,7 +35,7 @@ let twoArrays = [
     ['ashley', 'corbin', 'photog', 200],
     ['dan', 'keezer', 'dev', 300]
 ]
-createEmployeeRecords(twoArrays)
+console.log(createEmployeeRecords(twoArrays))
 
 
 
