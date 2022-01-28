@@ -32,11 +32,11 @@ function createTimeInEvent(object, timeStamp) {
 
 // console.log("Test Case for createEmployeeRecords:")
 
-let twoArrays = [
-    ['ashley', 'corbin', 'photog', 200],
-    ['dan', 'keezer', 'dev', 300]
-]
-console.log(createEmployeeRecords(twoArrays))
+// let twoArrays = [
+//     ['ashley', 'corbin', 'photog', 200],
+//     ['dan', 'keezer', 'dev', 300]
+// ]
+// console.log(createEmployeeRecords(twoArrays))
 
 let object = ['dan', 'keezer', 'dev', 300]
 let timeStamp = "2014-02-28 1400"
