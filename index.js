@@ -20,12 +20,14 @@ return array.map((elements) => {
 }
 
 function createTimeInEvent(object, timeStamp) {
-    let timeInObject = new Object()
-    
-//create empty object
-//grab timeInEvents key from object
-//
-
+    timeStampElements = timeStamp.split(' ')
+    let timeInObject = {  
+    type: "TimeIn",
+    hour: parseInt(timeStampElements[1]),
+    date: timeStampElements[0]
+    }
+    object.timeInEvents.push(timeInObject)
+    return object
 }
 
 
