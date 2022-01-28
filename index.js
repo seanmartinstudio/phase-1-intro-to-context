@@ -13,13 +13,18 @@ function createEmployeeRecord(array) {
     return obj
 }
 
-function createEmployeeRecords (array) {
+function createEmployeeRecords(array) {
 return array.map((elements) => {
     return createEmployeeRecord(elements)
 })
 }
 
 function createTimeInEvent(object, timeStamp) {
+    let timeInObject = new Object()
+    
+//create empty object
+//grab timeInEvents key from object
+//
 
 }
 
@@ -38,10 +43,20 @@ function createTimeInEvent(object, timeStamp) {
 // ]
 // console.log(createEmployeeRecords(twoArrays))
 
-let object = ['dan', 'keezer', 'dev', 300]
+let object = {
+    firstName: 'dan',
+    familyName: 'keezer',
+    title: 'dev',
+    payPerHour: 300,
+    timeInEvents: [],
+    timeOutEvents: []
+  }
+
 let timeStamp = "2014-02-28 1400"
 
-console.log(createTimeInEvent(object, timeStamp))
+console.log("Test Case for creatTimeInEvent")
+
+console.log("=>",  createTimeInEvent(object, timeStamp))
 
 
 
