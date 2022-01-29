@@ -31,6 +31,11 @@ function createTimeInEvent(object, timeStamp) {
     return object
 }
 
+function createTimeOutEvent(object, timeStamp) {
+console.log(object)
+console.log(timeStamp)
+}
+
 
 //Test cases
 // console.log("Test Case for createEmployyRecord:")
@@ -59,7 +64,11 @@ let timeStamp = "2014-02-28 1400"
 
 console.log("Test Case for creatTimeInEvent")
 
-console.log("=>",  createTimeInEvent(object, timeStamp))
+console.log("=>", createTimeInEvent(object, timeStamp))
+
+console.log("Test Case for createTimeOutEvent")
+
+console.log("=>", createTimeOutEvent(object, timeStamp))
 
 
 
