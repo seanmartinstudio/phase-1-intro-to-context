@@ -42,11 +42,14 @@ function createTimeOutEvent(object, timeStamp) {
 }
 
 function hoursWorkedOnDate(object, dateWorked) {
-//Not sure if the dateWorked argument is doing anything much here? Revist.
-object.find(() => {
-    
+
+let date = object.timeInEvents
+
+
+let timeInObject = date.find((element) => {
+return element.date === dateWorked
 })
-// object.timeInEvents[0].date
+console.log("timeInObject -- Hour", timeInObject)
 let timeIn = object.timeInEvents[0].hour
 let timeOut = object.timeOutEvents[0].hour
 let hours = timeIn - timeOut
@@ -92,7 +95,7 @@ let object = {
 
 let timeStamp = "2014-02-28 1400"
 
-let date = "0044-03-15"
+let date = '2014-02-28'
 
 console.log("Test Case for creatTimeInEvent")
 
