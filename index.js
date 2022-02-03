@@ -45,15 +45,13 @@ function hoursWorkedOnDate(object, dateWorked) {
 
 let date = object.timeInEvents
 
-
 let timeInObject = date.find((element) => {
 return element.date === dateWorked
 })
-console.log("timeInObject -- Hour", timeInObject)
-let timeIn = object.timeInEvents[0].hour
+
 let timeOut = object.timeOutEvents[0].hour
-let hours = timeIn - timeOut
-return Math.abs(hours) / 100
+let hours = timeOut - timeInObject.hour
+return hours / 100
 }
 
 
@@ -82,7 +80,6 @@ let twoArrays = [
     ['ashley', 'corbin', 'photog', 200],
     ['dan', 'keezer', 'dev', 300]
 ]
-console.log(createEmployeeRecords(twoArrays))
 
 let object = {
     firstName: 'dan',
@@ -97,21 +94,21 @@ let timeStamp = "2014-02-28 1400"
 
 let date = '2014-02-28'
 
-console.log("Test Case for creatTimeInEvent")
+console.log("=> Test Case for creatTimeInEvent")
 
 console.log("=>", createTimeInEvent(object, timeStamp))
 
-console.log("Test Case for createTimeOutEvent")
+console.log("=> Test Case for createTimeOutEvent")
 
 console.log("=>", createTimeOutEvent(object, timeStamp))
 
-console.log("Test Case for function hoursWorkedOnDate")
+console.log("=> Test Case for function hoursWorkedOnDate")
 
 console.log("=>", hoursWorkedOnDate(object, date))
 
-console.log("Test Case for function wagesEarnedOnDate")
+// console.log("Test Case for function wagesEarnedOnDate")
 
-console.log("=>", wagesEarnedOnDate(object, date))
+// console.log("=>", wagesEarnedOnDate(object, date))
 
 
 
