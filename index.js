@@ -54,10 +54,13 @@ let hours = timeOut - timeInObject.hour
 return hours / 100
 }
 
-
 function wagesEarnedOnDate(object, dateWorked) {
 let wage = object.payPerHour
-return hoursWorkedOnDate(object) * wage
+return hoursWorkedOnDate(object, dateWorked) * wage
+}
+
+function allWagesFor(object) {
+
 }
 
 
