@@ -19,7 +19,6 @@ return array.map((elements) => {
 
 function createTimeInEvent(object, timeStamp) {
     let timeStampElements = timeStamp.split(' ')
-    // console.log(timeStampElements)
     let timeInObject = {  
     type: "TimeIn",
     hour: parseInt(timeStampElements[1]),
@@ -29,8 +28,9 @@ function createTimeInEvent(object, timeStamp) {
     return object
 }
 
-function createTimeOutEvent(object, timeStamp) {
-    let timeStampElements = timeStamp.split(' ')
+function createTimeOutEvent(object, timeStampOut) {
+    console.log("TSO", timeStampOut)
+    let timeStampElements = timeStampOut.split(' ')
     console.log(timeStampElements)
     let timeOutObject = {  
         type: "TimeOut",
@@ -42,13 +42,10 @@ function createTimeOutEvent(object, timeStamp) {
 }
 
 function hoursWorkedOnDate(object, dateWorked) {
-
 let date = object.timeInEvents
-
 let timeInObject = date.find((element) => {
 return element.date === dateWorked
 })
-
 let timeOut = object.timeOutEvents[0].hour
 let hours = timeOut - timeInObject.hour
 return hours / 100
@@ -60,7 +57,12 @@ return hoursWorkedOnDate(object, dateWorked) * wage
 }
 
 function allWagesFor(object) {
-
+let total = 0
+for(let i = 0; i < object.timeInEvents.length; i++) {
+    let allWages = wagesEarnedOnDate(object, object.timeInEvents[i].date)
+    total += allWages
+}
+return total
 }
 
 
@@ -70,14 +72,13 @@ function allWagesFor(object) {
 
 
 
+// Test cases
+console.log("Test Case for createEmployyRecord:")
+console.log('=>',createEmployeeRecord(['sean', 'martin', 'producer', 150]));
 
-//Test cases
-// console.log("Test Case for createEmployyRecord:")
-// console.log('=>',createEmployeeRecord(['sean', 'martin', 'producer', 150]));
+console.log("------")
 
-// console.log("------")
-
-// console.log("Test Case for createEmployeeRecords:")
+console.log("Test Case for createEmployeeRecords:")
 
 let twoArrays = [
     ['ashley', 'corbin', 'photog', 200],
@@ -94,6 +95,8 @@ let object = {
   }
 
 let timeStamp = "2014-02-28 1400"
+// let timeStampOut = "2014-02-28 1800"
+
 
 let date = '2014-02-28'
 
@@ -109,9 +112,13 @@ console.log("=> Test Case for function hoursWorkedOnDate")
 
 console.log("=>", hoursWorkedOnDate(object, date))
 
-// console.log("Test Case for function wagesEarnedOnDate")
+console.log("=> Test Case for function wagesEarnedOnDate")
 
-// console.log("=>", wagesEarnedOnDate(object, date))
+console.log("=>", wagesEarnedOnDate(object, date))
+
+console.log("=> Test Case for function allWagesFor")
+
+console.log("=>", allWagesFor(object))
 
 
 
