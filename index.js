@@ -29,9 +29,7 @@ function createTimeInEvent(object, timeStamp) {
 }
 
 function createTimeOutEvent(object, timeStampOut) {
-    console.log("TSO", timeStampOut)
     let timeStampElements = timeStampOut.split(' ')
-    console.log(timeStampElements)
     let timeOutObject = {  
         type: "TimeOut",
         hour: parseInt(timeStampElements[1]),
@@ -41,15 +39,35 @@ function createTimeOutEvent(object, timeStampOut) {
         return object
 }
 
+// function hoursWorkedOnDate(object, dateWorked) {
+// let date = object.timeInEvents
+// let timeInObject = date.find((element) => {
+// return element.date === dateWorked
+// })
+// let timeOut = object.timeOutEvents[0].hour
+// console.log("TimeOUt", timeOut)
+// let hours = timeOut - timeInObject.hour
+// return hours / 100
+// }
+
 function hoursWorkedOnDate(object, dateWorked) {
-let date = object.timeInEvents
-let timeInObject = date.find((element) => {
-return element.date === dateWorked
-})
-let timeOut = object.timeOutEvents[0].hour
-let hours = timeOut - timeInObject.hour
-return hours / 100
-}
+    let dateIn = object.timeInEvents
+    let timeInObject = dateIn.find((element) => {
+    return element.date === dateWorked
+    })
+
+    let dateOut = object.timeOutEvents
+    let timeOutObject = dateOut.find((element) => {
+    return element.date === dateWorked
+    })
+    console.log("timeInObject", timeInObject)
+    console.log("timeOutObject", timeOutObject)
+
+    let timeOut = object.timeOutEvents[0].hour
+    let hours = timeOutObject.hour - timeInObject.hour
+    console.log("hours", hours)
+    return hours / 100
+    }
 
 function wagesEarnedOnDate(object, dateWorked) {
 let wage = object.payPerHour
@@ -57,12 +75,17 @@ return hoursWorkedOnDate(object, dateWorked) * wage
 }
 
 function allWagesFor(object) {
-let total = 0
+let total = []
+let sum = 0
 for(let i = 0; i < object.timeInEvents.length; i++) {
+    console.log("ThisShouldMatch", object.timeInEvents[i].date)
     let allWages = wagesEarnedOnDate(object, object.timeInEvents[i].date)
-    total += allWages
+    total.push(allWages)
+    let sum = total.reduce((previousValue, currentValue) => previousValue + currentValue)
+    return sum
+    
 }
-return total
+return sum
 }
 
 
@@ -95,7 +118,7 @@ let object = {
   }
 
 let timeStamp = "2014-02-28 1400"
-// let timeStampOut = "2014-02-28 1800"
+let timeStampOut = "2014-02-28 1800"
 
 
 let date = '2014-02-28'
