@@ -39,17 +39,6 @@ function createTimeOutEvent(object, timeStampOut) {
         return object
 }
 
-// function hoursWorkedOnDate(object, dateWorked) {
-// let date = object.timeInEvents
-// let timeInObject = date.find((element) => {
-// return element.date === dateWorked
-// })
-// let timeOut = object.timeOutEvents[0].hour
-// console.log("TimeOUt", timeOut)
-// let hours = timeOut - timeInObject.hour
-// return hours / 100
-// }
-
 function hoursWorkedOnDate(object, dateWorked) {
     let dateIn = object.timeInEvents
     let timeInObject = dateIn.find((element) => {
@@ -60,10 +49,7 @@ function hoursWorkedOnDate(object, dateWorked) {
     let timeOutObject = dateOut.find((element) => {
     return element.date === dateWorked
     })
-    console.log("timeInObject", timeInObject)
-    console.log("timeOutObject", timeOutObject)
 
-    let timeOut = object.timeOutEvents[0].hour
     let hours = timeOutObject.hour - timeInObject.hour
     console.log("hours", hours)
     return hours / 100
@@ -78,12 +64,12 @@ function allWagesFor(object) {
 let total = []
 let sum = 0
 for(let i = 0; i < object.timeInEvents.length; i++) {
-    console.log("ThisShouldMatch", object.timeInEvents[i].date)
     let allWages = wagesEarnedOnDate(object, object.timeInEvents[i].date)
+    console.log("All Wages", allWages)
+    console.log("i", i)
     total.push(allWages)
-    let sum = total.reduce((previousValue, currentValue) => previousValue + currentValue)
-    return sum
-    
+    sum = total.reduce((previousValue, currentValue) => previousValue + currentValue)
+    console.log("SUM VALUE", sum)
 }
 return sum
 }
@@ -95,55 +81,80 @@ return sum
 
 
 
+
 // Test cases
-console.log("Test Case for createEmployyRecord:")
-console.log('=>',createEmployeeRecord(['sean', 'martin', 'producer', 150]));
+// console.log("Test Case for createEmployyRecord:")
+// console.log('=>',createEmployeeRecord(['sean', 'martin', 'producer', 150]));
 
-console.log("------")
+// let twoArrays = [
+//     ['ashley', 'corbin', 'photog', 200],
+//     ['dan', 'keezer', 'dev', 300]
+// ]
 
-console.log("Test Case for createEmployeeRecords:")
+// console.log("Test Case for createEmployeeRecords:")
+// console.log('=>', createEmployeeRecords(twoArrays))
 
-let twoArrays = [
-    ['ashley', 'corbin', 'photog', 200],
-    ['dan', 'keezer', 'dev', 300]
-]
+// let object = {
+//     firstName: 'dan',
+//     familyName: 'keezer',
+//     title: 'dev',
+//     payPerHour: 300,
+//     timeInEvents: [],
+//     timeOutEvents: []
+//   }
 
-let object = {
-    firstName: 'dan',
-    familyName: 'keezer',
-    title: 'dev',
-    payPerHour: 300,
-    timeInEvents: [],
-    timeOutEvents: []
-  }
+//   let object2 = {
+//     firstName: 'sean',
+//     familyName: 'martin',
+//     title: 'producer',
+//     payPerHour: 200,
+//     timeInEvents: [],
+//     timeOutEvents: []
+//   }
 
-let timeStamp = "2014-02-28 1400"
-let timeStampOut = "2014-02-28 1800"
+// let timeStamp = "2014-02-28 1400"
+// let timeStampOut = "2014-02-28 1800"
+// let date = '2014-02-28'
 
+// console.log("Test Case for creatTimeInEvent")
 
-let date = '2014-02-28'
+// console.log("=>", createTimeInEvent(object, timeStamp))
 
-console.log("=> Test Case for creatTimeInEvent")
+// console.log("Test Case for creatTimeInEvent2")
 
-console.log("=>", createTimeInEvent(object, timeStamp))
+// console.log("=>", createTimeInEvent(object2, timeStamp))
 
-console.log("=> Test Case for createTimeOutEvent")
+// console.log("Test Case for createTimeOutEvent")
 
-console.log("=>", createTimeOutEvent(object, timeStamp))
+// console.log("=>", createTimeOutEvent(object, timeStampOut))
 
-console.log("=> Test Case for function hoursWorkedOnDate")
+// console.log("Test Case for createTimeOutEvent2")
 
-console.log("=>", hoursWorkedOnDate(object, date))
+// console.log("=>", createTimeOutEvent(object2, timeStampOut))
 
-console.log("=> Test Case for function wagesEarnedOnDate")
+// console.log("Test Case for function hoursWorkedOnDate")
 
-console.log("=>", wagesEarnedOnDate(object, date))
+// console.log("=>", hoursWorkedOnDate(object, date))
 
-console.log("=> Test Case for function allWagesFor")
+// console.log("Test Case for function hoursWorkedOnDate2")
 
-console.log("=>", allWagesFor(object))
+// console.log("=>", hoursWorkedOnDate(object2, date))
 
+// console.log("Test Case for function wagesEarnedOnDate")
 
+// console.log("=>", wagesEarnedOnDate(object, date))
+
+// console.log("Test Case for function wagesEarnedOnDate2")
+
+// console.log("=>", wagesEarnedOnDate(object2, date))
+
+// console.log("Test Case for function allWagesFor")
+
+// console.log("=>", allWagesFor(object))
+
+// console.log("Test Case for function allWagesFor2")
+
+// console.log("=>", allWagesFor(object2))
 
 
 
