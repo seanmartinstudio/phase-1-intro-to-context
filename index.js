@@ -65,16 +65,15 @@ let total = []
 let sum = 0
 for(let i = 0; i < object.timeInEvents.length; i++) {
     let allWages = wagesEarnedOnDate(object, object.timeInEvents[i].date)
-    console.log("All Wages", allWages)
-    console.log("i", i)
     total.push(allWages)
     sum = total.reduce((previousValue, currentValue) => previousValue + currentValue)
-    console.log("SUM VALUE", sum)
 }
 return sum
 }
 
-
+function calculatePayroll(employeeRecords) {
+return employeeRecords.map(employee => allWagesFor(employee)).reduce((currentValue, total) => currentValue + total)
+}
 
 
 
